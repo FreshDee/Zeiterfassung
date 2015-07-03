@@ -1,6 +1,8 @@
 package Verarbeitungsschicht;
 
-public class Taetigkeit {
+import java.io.Serializable;
+
+public class Taetigkeit implements Serializable {
 
 	private int TatigkeitsID;
 	private boolean isbillable;

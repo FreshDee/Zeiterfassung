@@ -1,6 +1,8 @@
 package Verarbeitungsschicht;
 
-public class Zeit {
+import java.io.Serializable;
+
+public class Zeit implements Serializable {
 	
 	private int h;
 	private int m;
