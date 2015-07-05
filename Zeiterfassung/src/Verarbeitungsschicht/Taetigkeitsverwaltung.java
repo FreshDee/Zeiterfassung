@@ -48,8 +48,8 @@ public boolean addMA ( boolean isbillable, Zeit start, Zeit end) throws FileNotF
 
 	public void display() {
 		
-		for(int i= 0; i< MAlist.size(); i++){
-			System.out.println(MAlist.get(i).toString());
+		for(int i= 0; i< ExerciseList.size(); i++){
+			System.out.println(ExerciseList.get(i).toString());
 		}
 		
 	}
