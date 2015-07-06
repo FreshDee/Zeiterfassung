@@ -29,6 +29,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
+import java.util.Random;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -40,7 +41,7 @@ public class Einloggfenster extends JFrame {
 	private JPanel contentPane;
 	private JTextField userID_eingabe;
 	private JPasswordField passwordField;
-
+	static Einloggfenster frame = new Einloggfenster();
 	/**
 	 * Launch the application.
 	 */
@@ -48,7 +49,7 @@ public class Einloggfenster extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Einloggfenster frame = new Einloggfenster();
+
 					frame.setLocationRelativeTo(null);
 					frame.setTitle("NY Times Record - Log in");
 					frame.setVisible(true);
@@ -112,7 +113,7 @@ public class Einloggfenster extends JFrame {
 				Mitarbeiterverwaltung list = new Mitarbeiterverwaltung();
 				String tmp_password= new String(passwordField.getPassword());
 				try {
-					list.lesen("MAListe2");
+					list.lesen("MAListe1");
 				} catch (ClassNotFoundException | IOException e1) {
 					JOptionPane.showMessageDialog(null,"Es wurde keine Mitarbeiterdatei gefunden."+"\n"+"Bitte informieren Sie umgehend den Systemadministrator!","keine Daten vorhanden", JOptionPane.CANCEL_OPTION);
 				}
@@ -121,6 +122,11 @@ public class Einloggfenster extends JFrame {
 					LoginFeedback.setText(tmp.toString());
 					LoginFeedback.setBounds(120,166,200,14);
 					LoginFeedback.setEnabled(true);
+					Random rando = new Random();
+					if( rando.nextInt(2) == 0){
+						frame.dispose();
+						MitarbeiterMain.main(null);
+					}
 				}else{
 					LoginFeedback.setText("");
 				}
